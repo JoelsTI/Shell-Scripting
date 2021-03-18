@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+for i in $1*."jpg"; do
+    convert $i -resize 128x128\> $i
+    convert $i "${i%.*}.png"
+done

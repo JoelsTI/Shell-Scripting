@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+echo -n "Wat is uw gebruikersnaam: ";
+read name;
+if [ "$name" == "" ]; then 
+    name=$(whoami);
+fi
+
+echo "De gebruikersnaam die u heeft is: $name";
+echo -n "Geef uw wachtwoord op: "
+read wachtwoord;
+while test ${#wachtwoord} -lt 8 ; do
+    echo -n "Uw wachtwoord moet minimaal 8 karakters bevatten, voer deze opnieuw in: "
+    read wachtwoord;
+    if test ${#wachtwoord} -gt 7 ; then
+        break;
+    fi
+done
+
+echo -n "Herhaal uw wachtwoord nogmaals: "
+read wachtwoord_check;
+while [ $wachtwoord != $wachtwoord_check ]; do
+    echo "Uw wachtwoord komt niet overeen, probeer het nogmaals: "
+    read wachtwoord_check;
+    if [ $wachtwoord == $wachtwoord_check ]; then
+        break;
+    fi
+done
+
+wachtwoord_gehashd="$(echo -n "$wachtwoord" | md5sum | cut -d"-" -f1 - )"
+echo "Gebruikersnaam:" $name >> $1
+echo "Wachtwoord gehashd:" $wachtwoord_gehashd >> $1
