@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+for i in $1*."jpg"; do # elke jpg in de map wordt genomen
+    convert $i -resize 128x128\> $i # alle afbeeldingen worden verkleind naar 128x128
+    convert $i "${i%.*}.png" # elke jpg wordt een png
+done

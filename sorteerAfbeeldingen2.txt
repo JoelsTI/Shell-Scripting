@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+mkdir -p Afbeeldingen
+shopt -s nullglob globstar
+
+find $1 -type f -name "*.png" -o -name "*.jpg" -exec mv "{}" Afbeeldingen \; # zoekt alle png's en jpg's en execute commando move naar de map Afbeeldingen.
+
+

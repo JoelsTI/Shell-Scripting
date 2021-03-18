@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+case $1 in 
+*.py)
+python3 $1 # voert voor alle python bestanden de interpreter python3 aan.
+;;
+*.sh)
+bash $1 # voert voor alle sh bestanden de interpreter bash aan.
+;;
+*.cc)
+cat $1 # voert voor alle cc bestanden de interpreter cat aan.
+;;
+*)
+echo "Error: Filetype Not Found." # als er andere bestanden in de map zitten wordt deze foutmelding geechot.
+esac

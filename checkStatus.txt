@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+rm -f $3
+
+for i in $1/* ; do
+    $2 $i >/dev/null
+    echo "naam: $i status: $?" >> $3 # echot elke naam en status van de bestanden in de gegeven map.
+done
