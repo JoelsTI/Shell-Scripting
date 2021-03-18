@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-shopt -s nullglob globstar
-mkdir -p Afbeeldingen
-# for-loop voor elke jpg png bestand #
-for i in $1/**/*.{jpg,png}; do
-    mv -f $i Afbeeldingen
-    # move elk jpg of png bestand die door de for loop gevonden wordt naar "Afbeeldingen" #
-done
-
